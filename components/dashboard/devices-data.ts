@@ -1,0 +1,228 @@
+export type DeviceFamily = "bp" | "pulse" | "scale" | "glucose";
+export type DeviceStatus = "with-readings" | "no-readings" | "suspended" | "deactivated";
+
+export type RpmDevice = {
+  id: string;
+  family: DeviceFamily;
+  model: string;
+  serial: string;
+  imei: string;
+  patient: string | null;
+  status: DeviceStatus;
+  lastReading: string | null;
+  battery: number | null;
+  checkedIn: string | null;
+};
+
+export const deviceFamilies: Array<{ id: DeviceFamily; label: string }> = [
+  { id: "bp", label: "iBloodPressure" },
+  { id: "pulse", label: "iPulseOx" },
+  { id: "scale", label: "iScale" },
+  { id: "glucose", label: "iGlucose" },
+];
+
+export const deviceStatuses: Array<{ id: DeviceStatus; label: string }> = [
+  { id: "with-readings", label: "Active · with readings" },
+  { id: "no-readings", label: "Active · no readings yet" },
+  { id: "suspended", label: "Suspended" },
+  { id: "deactivated", label: "Deactivated" },
+];
+
+export const rpmDevices: RpmDevice[] = [
+  {
+    id: "dv-bp-01",
+    family: "bp",
+    model: "Pylo Blood Pressure Cuff",
+    serial: "PY-20481",
+    imei: "868369081384802",
+    patient: "Maria Alvarez",
+    status: "with-readings",
+    lastReading: "145/77 mmHg",
+    battery: 60,
+    checkedIn: "10/20/2026 07:46 AM",
+  },
+  {
+    id: "dv-bp-02",
+    family: "bp",
+    model: "Pylo Blood Pressure Cuff",
+    serial: "PY-20496",
+    imei: "868369081390114",
+    patient: "Elena Rossi",
+    status: "with-readings",
+    lastReading: "118/76 mmHg",
+    battery: 82,
+    checkedIn: "10/20/2026 08:12 AM",
+  },
+  {
+    id: "dv-bp-03",
+    family: "bp",
+    model: "Pylo Blood Pressure Cuff",
+    serial: "PY-20502",
+    imei: "868369081391220",
+    patient: "Amina Diallo",
+    status: "with-readings",
+    lastReading: "124/78 mmHg",
+    battery: 74,
+    checkedIn: "10/19/2026 09:04 PM",
+  },
+  {
+    id: "dv-bp-04",
+    family: "bp",
+    model: "Pylo Blood Pressure Cuff",
+    serial: "PY-20518",
+    imei: "868369081392008",
+    patient: null,
+    status: "no-readings",
+    lastReading: null,
+    battery: 100,
+    checkedIn: null,
+  },
+  {
+    id: "dv-bp-05",
+    family: "bp",
+    model: "Pylo Blood Pressure Cuff",
+    serial: "PY-19844",
+    imei: "868369081220441",
+    patient: null,
+    status: "suspended",
+    lastReading: "151/92 mmHg",
+    battery: 12,
+    checkedIn: "08/02/2026 07:18 AM",
+  },
+  {
+    id: "dv-ox-01",
+    family: "pulse",
+    model: "iPulseOx",
+    serial: "OX-11820",
+    imei: "867420031184201",
+    patient: "Noah Bennett",
+    status: "with-readings",
+    lastReading: "SpO2 93%",
+    battery: 48,
+    checkedIn: "10/20/2026 06:55 AM",
+  },
+  {
+    id: "dv-ox-02",
+    family: "pulse",
+    model: "iPulseOx",
+    serial: "OX-11844",
+    imei: "867420031188044",
+    patient: "Luis Ortega",
+    status: "with-readings",
+    lastReading: "SpO2 96%",
+    battery: 91,
+    checkedIn: "10/20/2026 07:02 AM",
+  },
+  {
+    id: "dv-ox-03",
+    family: "pulse",
+    model: "iPulseOx",
+    serial: "OX-11861",
+    imei: "867420031190612",
+    patient: null,
+    status: "no-readings",
+    lastReading: null,
+    battery: 100,
+    checkedIn: null,
+  },
+  {
+    id: "dv-ox-04",
+    family: "pulse",
+    model: "iPulseOx",
+    serial: "OX-11002",
+    imei: "867420031100028",
+    patient: null,
+    status: "deactivated",
+    lastReading: "SpO2 97%",
+    battery: null,
+    checkedIn: "04/11/2026 08:40 AM",
+  },
+  {
+    id: "dv-sc-01",
+    family: "scale",
+    model: "iScale",
+    serial: "SC-33014",
+    imei: "869510022330140",
+    patient: "James Carter",
+    status: "with-readings",
+    lastReading: "188 lb",
+    battery: 67,
+    checkedIn: "10/20/2026 06:10 AM",
+  },
+  {
+    id: "dv-sc-02",
+    family: "scale",
+    model: "iScale",
+    serial: "SC-33028",
+    imei: "869510022330287",
+    patient: "Omar Haddad",
+    status: "with-readings",
+    lastReading: "+3.1 lb overnight",
+    battery: 55,
+    checkedIn: "10/20/2026 05:48 AM",
+  },
+  {
+    id: "dv-sc-03",
+    family: "scale",
+    model: "iScale",
+    serial: "SC-33041",
+    imei: "869510022330411",
+    patient: "Robert Klein",
+    status: "with-readings",
+    lastReading: "176 lb",
+    battery: 88,
+    checkedIn: "10/19/2026 06:22 AM",
+  },
+  {
+    id: "dv-sc-04",
+    family: "scale",
+    model: "iScale",
+    serial: "SC-32990",
+    imei: "869510022329904",
+    patient: null,
+    status: "suspended",
+    lastReading: "164 lb",
+    battery: 8,
+    checkedIn: "07/14/2026 06:05 AM",
+  },
+  {
+    id: "dv-gl-01",
+    family: "glucose",
+    model: "iGlucose",
+    serial: "GL-77210",
+    imei: "868812044772101",
+    patient: "Priya Shah",
+    status: "with-readings",
+    lastReading: "142 mg/dL",
+    battery: 76,
+    checkedIn: "10/20/2026 07:30 AM",
+  },
+  {
+    id: "dv-gl-02",
+    family: "glucose",
+    model: "iGlucose",
+    serial: "GL-77226",
+    imei: "868812044772268",
+    patient: "Helen Cho",
+    status: "with-readings",
+    lastReading: "168 mg/dL",
+    battery: 41,
+    checkedIn: "10/20/2026 08:01 AM",
+  },
+  {
+    id: "dv-gl-03",
+    family: "glucose",
+    model: "iGlucose",
+    serial: "GL-77240",
+    imei: "868812044772405",
+    patient: null,
+    status: "no-readings",
+    lastReading: null,
+    battery: 100,
+    checkedIn: null,
+  },
+];
+
+export function statusLabel(status: DeviceStatus) {
+  return deviceStatuses.find((item) => item.id === status)?.label ?? status;
+}
